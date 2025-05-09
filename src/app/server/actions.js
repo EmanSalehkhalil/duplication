@@ -17,13 +17,13 @@ import { db as pricingData } from '@/fake-db/pages/pricing'
 import { db as statisticsData } from '@/fake-db/pages/widgetExamples'
 import { title } from 'valibot'
 
-
-// api/leads/leadsController.js
+// Third-Party Imports
 const { createClient } = require('@supabase/supabase-js');
+
+// Supabase Setup
 const supabaseUrl = 'https://hcwqyddclmnusfuzioyj.supabase.co';
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhjd3F5ZGRjbG1udXNmdXppb3lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk2OTA4MzksImV4cCI6MjA1NTI2NjgzOX0.uJSUIJTArrYt-dNBkL7v2WH7bh4Kd7AeQvYm53kc3bA';
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
 
 // export const createProperty = async () => {
 //   const { city, locality, sub_locality, tower_name } = useContext(LocationContext)

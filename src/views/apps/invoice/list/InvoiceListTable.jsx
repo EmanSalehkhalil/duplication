@@ -1,9 +1,4 @@
 'use client'
-const { createClient } = require('@supabase/supabase-js');
-
-const supabaseUrl = 'https://hcwqyddclmnusfuzioyj.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhjd3F5ZGRjbG1udXNmdXppb3lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk2OTA4MzksImV4cCI6MjA1NTI2NjgzOX0.uJSUIJTArrYt-dNBkL7v2WH7bh4Kd7AeQvYm53kc3bA';
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // React Imports
 import { useState, useEffect, useMemo } from 'react'
@@ -53,6 +48,12 @@ import { getLocalizedUrl } from '@/utils/i18n'
 // Style Imports
 import tableStyles from '@core/styles/table.module.css'
 
+const { createClient } = require('@supabase/supabase-js');
+const supabaseUrl = 'https://hcwqyddclmnusfuzioyj.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhjd3F5ZGRjbG1udXNmdXppb3lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk2OTA4MzksImV4cCI6MjA1NTI2NjgzOX0.uJSUIJTArrYt-dNBkL7v2WH7bh4Kd7AeQvYm53kc3bA';
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+
 const fuzzyFilter = (row, columnId, value, addMeta) => {
   // Rank the item
   const itemRank = rankItem(row.getValue(columnId), value)
@@ -63,6 +64,7 @@ const fuzzyFilter = (row, columnId, value, addMeta) => {
   })
 
   // Return if the item should be filtered in/out
+
   return itemRank.passed
 }
 
@@ -108,6 +110,7 @@ const InvoiceListTable = ({ invoiceData }) => {
   const [globalFilter, setGlobalFilter] = useState('')
 
   const selectedIds = useMemo(() => {
+
     return Object.keys(rowSelection).filter(id => rowSelection[id]); // Extract selected IDs
   }, [rowSelection]);
 
@@ -121,6 +124,7 @@ const InvoiceListTable = ({ invoiceData }) => {
 
   if (error) {
     console.error('Error deleting row:', error);
+
     return; // Handle error as needed
   }
 
@@ -177,6 +181,7 @@ const InvoiceListTable = ({ invoiceData }) => {
             minimumFractionDigits: 0,
             maximumFractionDigits: 0,
           }).format(price);
+
           return <Typography>{formattedPrice}</Typography>;
         },
       }),
@@ -425,8 +430,10 @@ const InvoiceListTable = ({ invoiceData }) => {
     const { avatar, name } = params
 
     if (avatar) {
+
       return <CustomAvatar src={avatar} skin='light' size={34} />
     } else {
+
       return (
         <CustomAvatar skin='light' size={34}>
           {getInitials(name)}
@@ -438,6 +445,7 @@ const InvoiceListTable = ({ invoiceData }) => {
   useEffect(() => {
   console.log('status', status)
     const filteredData = data?.filter(property => {
+
       if (status && property.property_type !== status) return false
 
       return true
@@ -562,6 +570,7 @@ if (status === "All") {
                 .getRowModel()
                 .rows.slice(0, table.getState().pagination.pageSize)
                 .map(row => {
+                  
                   return (
                     <tr key={row.id} className={classnames({ selected: row.getIsSelected() })}>
                       {row.getVisibleCells().map(cell => (
