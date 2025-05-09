@@ -22,6 +22,7 @@ import { getLeadsData ,getEcommerceData} from '@/app/server/actions'
   return res.json()
 } */
 const LeadsListPage = async () => {
+  
   // Vars
   const data = await getEcommerceData()
 
