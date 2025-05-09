@@ -1,5 +1,7 @@
+
 // Component Imports
-import LeadsList from '@/views/apps/leads/list/Leads'
+import LeadsList from '@/views/apps/leads/leads/Leads'
+
 // Data Imports
 import { getLeadsData ,getEcommerceData} from '@/app/server/actions'
 
