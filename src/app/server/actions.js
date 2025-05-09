@@ -25,22 +25,6 @@ const supabaseUrl = 'https://hcwqyddclmnusfuzioyj.supabase.co';
 const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imhjd3F5ZGRjbG1udXNmdXppb3lqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk2OTA4MzksImV4cCI6MjA1NTI2NjgzOX0.uJSUIJTArrYt-dNBkL7v2WH7bh4Kd7AeQvYm53kc3bA';
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-// export const createProperty = async () => {
-//   const { city, locality, sub_locality, tower_name } = useContext(LocationContext)
-//   const { data, error } = await supabase
-//       .from('properties')
-//       .insert([{
-         
-//         city, locality, sub_locality, tower_name
-//       }]);
-
-//   if (error) {
-//       return res.status(400).json({ error: error.message });
-//   }
-
-//   res.status(201).json({ data });
-// };
-
 // Function to add data to a table (e.g., 'properties')
 export async function addProperty(propertyData) {
   try {

@@ -12,6 +12,7 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 // Third-party Imports
 import classnames from 'classnames'
 import {getPropertCount,getPropertCount_Rent,getPropertCount_Buy,getPropertCount_Price}  from '@/app/server/actions'
+
 // Vars
 const data = [
   {
@@ -37,6 +38,7 @@ const data = [
   }
 ]
 function formatAED(amount) {
+  
   return new Intl.NumberFormat('en-AE', {
     style: 'currency',
     currency: 'AED',
@@ -45,6 +47,7 @@ function formatAED(amount) {
   }).format(amount)
 }
 const InvoiceCard = () => {
+
   // Hooks
   const isBelowMdScreen = useMediaQuery(theme => theme.breakpoints.down('md'))
   const isBelowSmScreen = useMediaQuery(theme => theme.breakpoints.down('sm'))

@@ -1,8 +1,10 @@
 'use client'
 
+import { useState, createContext, useContext } from 'react'
+
 // MUI Imports
 import Grid from '@mui/material/Grid2'
-import { useState, createContext, useContext } from 'react'
+
 // Component Imports
 import ProductAddHeader from '@views/apps/ecommerce/products/add/ProductAddHeader'
 import ProductInformation from '@views/apps/ecommerce/products/add/ProductInformation'
@@ -23,7 +25,7 @@ const PricingContext = createContext()
 const OrganizeContext = createContext()
 const InformationContext = createContext()
 
-const eCommerceProductsAdd = () => {
+const ECommerceProductsAdd  = () => {
 
   const [files, setFiles] = useState([])
   const [city, setCity] = useState('')
@@ -57,6 +59,7 @@ const[furnished,setFurnished]=useState('Yes')
 
 
   return (
+
 // Information 
 <ImageContext.Provider value={{ files, setFiles }}>
 <LocationContext.Provider value={{ city, setCity,locality, setLocality,subLocality, setSubLocality ,towerName, setTowerName}}>
@@ -114,7 +117,7 @@ const[furnished,setFurnished]=useState('Yes')
   )
 }
 
-export default eCommerceProductsAdd
+export default ECommerceProductsAdd 
 export { ImageContext,LocationContext ,SpaceContext , PricingContext,OrganizeContext,InformationContext}
 
 
